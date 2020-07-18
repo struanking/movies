@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "next": "latest",
+    "next-auth": "^3.0.0-beta.19",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "@testing-library/react": "^10.0.1",
