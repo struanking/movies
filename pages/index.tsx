@@ -10,7 +10,7 @@ export default function Home(): JSX.Element {
       </Head>
 
       <main>
-        <h1 data-testid="title">Welcome to Movie App</h1>
+        <h1 data-testid="title">Welcome to The Movie App</h1>
         <button type="button">Test button</button>
         <p>
           {!session && (
