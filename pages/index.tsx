@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import { useSession } from 'next-auth/client';
+import config from '../config';
 
-export default function Home(): JSX.Element {
+export default function Home({ latestFilm, nowPlaying }): JSX.Element {
   const [session, loading] = useSession();
   return (
     <div className="container">
@@ -26,7 +27,39 @@ export default function Home(): JSX.Element {
             </>
           )}
         </p>
+        <p>
+          Latest Film
+          <br />
+          <code>{JSON.stringify(latestFilm, null, '\t')}</code>
+        </p>
+
+        <ul>
+          {nowPlaying?.map((film) => (
+            <li key={film.id}>{film.title}</li>
+          ))}
+        </ul>
       </main>
     </div>
   );
+}
+
+function apiRequest(path) {
+  return `${config.TMDB_API_ROOT}${path}?api_key=${process.env.TMDB_API_KEY}`;
+}
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch(apiRequest('/movie/latest'));
+  const latestFilm = await res.json();
+
+  const res2 = await fetch(apiRequest('/movie/now_playing'));
+  const nowPlaying = await res2.json();
+
+  return {
+    props: {
+      latestFilm,
+      nowPlaying: nowPlaying.results,
+    },
+  };
 }
