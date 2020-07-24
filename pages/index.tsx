@@ -5,41 +5,39 @@ import config from '../config';
 export default function Home({ latestFilm, nowPlaying }): JSX.Element {
   const [session, loading] = useSession();
   return (
-    <div className="container">
+    <>
       <Head>
-        <title>Movie App</title>
+        <title>Movie App - Home</title>
       </Head>
 
-      <main>
-        <h1 data-testid="title">Welcome to The Movie App, 1</h1>
-        <button type="button">Test button</button>
-        <p>
-          {!session && (
-            <>
-              Not signed in <br />
-              <a href="/api/auth/signin">Sign in</a>
-            </>
-          )}
-          {session && (
-            <>
-              Signed in as {session.user.email} <br />
-              <a href="/api/auth/signout">Sign out</a>
-            </>
-          )}
-        </p>
-        <p>
-          Latest Film
-          <br />
-          <code>{JSON.stringify(latestFilm, null, '\t')}</code>
-        </p>
+      <h1 data-testid="title">Welcome to The Movie App, 1</h1>
+      <button type="button">Test button</button>
+      <p>
+        {!session && (
+          <>
+            Not signed in <br />
+            <a href="/api/auth/signin">Sign in</a>
+          </>
+        )}
+        {session && (
+          <>
+            Signed in as {session.user.email} <br />
+            <a href="/api/auth/signout">Sign out</a>
+          </>
+        )}
+      </p>
+      <p>
+        Latest Film
+        <br />
+        <code>{JSON.stringify(latestFilm, null, '\t')}</code>
+      </p>
 
-        <ul>
-          {nowPlaying?.map((film) => (
-            <li key={film.id}>{film.title}</li>
-          ))}
-        </ul>
-      </main>
-    </div>
+      <ul>
+        {nowPlaying?.map((film) => (
+          <li key={film.id}>{film.title}</li>
+        ))}
+      </ul>
+    </>
   );
 }
 
