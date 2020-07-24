@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useSession } from 'next-auth/client';
 import config from '../config';
+import { Search } from '../components/search';
 
 export default function Home({ latestFilm, nowPlaying }): JSX.Element {
   const [session, loading] = useSession();
@@ -26,6 +27,7 @@ export default function Home({ latestFilm, nowPlaying }): JSX.Element {
           </>
         )}
       </p>
+      <Search />
       <p>
         Latest Film
         <br />

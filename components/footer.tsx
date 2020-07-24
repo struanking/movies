@@ -1,3 +1,3 @@
 export function Footer() {
-  return <footer role="contentinfo">[footer]</footer>;
+  return <footer role="contentinfo">[TMDb]</footer>;
 }
