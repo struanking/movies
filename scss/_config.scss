@@ -29,28 +29,64 @@ $gorko-size-scale: (
  * Colors are shared between backgrounds and text by default. 
  * You can also use them to power borders, fills or shadows, for example.
  */
+$blue-grey-050: #F0F4F8;
+$blue-grey-100: #D9E2EC;
+$blue-grey-200: #BCCCDC;
+$blue-grey-300: #9FB3C8;
+$blue-grey-400: #829AB1;
+$blue-grey-500: #627D98;
+$blue-grey-600: #486581;
+$blue-grey-700: #334E68;
+$blue-grey-800: #243B53;
+$blue-grey-900: #102A43;
+
+// $light-blue-vivid-050: #E3F8FF;
+// $light-blue-vivid-100: #B3ECFF;
+// $light-blue-vivid-200: #81DEFD;
+// $light-blue-vivid-300: #5ED0FA;
+// $light-blue-vivid-400: #40C3F7;
+$light-blue-vivid-500: #2BB0ED;
+// $light-blue-vivid-600: #1992D4;
+$light-blue-vivid-700: #127FBF;
+// $light-blue-vivid-800: #0B69A3;
+$light-blue-vivid-900: #035388;
+
+// $teal-050: #EFFCF6;
+// $teal-100: #C6F7E2;
+// $teal-200: #8EEDC7;
+// $teal-300: #65D6AD;
+// $teal-400: #3EBD93;
+$teal-500: #27AB83;
+// $teal-600: #199473;
+$teal-700: #147D64;
+// $teal-800: #0C6B58;
+$teal-900: #014D40;
+
+// $pink-vivid-050: #FFE3EC;
+// $pink-vivid-100: #FFB8D2;
+// $pink-vivid-200: #FF8CBA;
+// $pink-vivid-300: #F364A2;
+// $pink-vivid-400: #E8368F;
+// $pink-vivid-500: #DA127D;
+// $pink-vivid-600: #BC0A6F;
+$pink-vivid-700: #A30664;
+// $pink-vivid-800: #870557;
+// $pink-vivid-900: #620042;
+
 $gorko-colors: (
-  'dark': #38445b,
-  'dark-shade': #263147,
-  'dark-glare': #505c73,
-  'light': #f9f4e3,
-  'light-shade': #fff6d7,
-  'light-glare': #fdfbf3,
-  'primary': #513aa6,
-  'primary-shade': #432e92,
-  'primary-glare': #654ac9,
-  'secondary': #6ac2b6,
-  'secondary-shade': #35a495,
-  'secondary-glare': #98e2d8,
-  'tertiary': #ffd490,
-  'tertiary-shade': #ffca77,
-  'tertiary-glare': #ffdeaa,
-  'quaternary': #ff7f5c,
-  'quaternary-shade': #f96841,
-  'quaternary-glare': #fe9476,
-  'quinary': #fa576e,
-  'quinary-shade': #fc3e59,
-  'quinary-glare': #f26c7f,
+  'dark': $blue-grey-700,
+  'dark-shade': $blue-grey-900,
+  'dark-glare': $blue-grey-500,
+  'light': $blue-grey-050,
+  'light-shade': $blue-grey-100,
+  'light-glare': $blue-grey-300,
+  'primary': $light-blue-vivid-700,
+  'primary-shade': $light-blue-vivid-900,
+  'primary-glare': $light-blue-vivid-500,
+  'secondary': $teal-700,
+  'secondary-shade': $teal-900,
+  'secondary-glare': $teal-500,
+  'link': $pink-vivid-700,
 );
 
 /**
@@ -76,8 +112,7 @@ $gorko-config: (
   ),
   'font': (
     'items': (
-      'base': '"Literata", Georgia, serif',
-      'sans': '"Red Hat Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      'base': '"Helvetica Neue", Arial, sans-serif',
     ),
     'output': 'standard',
     'property': 'font-family',
@@ -87,11 +122,21 @@ $gorko-config: (
     'output': 'responsive',
     'property': 'margin-top',
   ),
+  'pad-top': (
+    'items': $gorko-size-scale,
+    'output': 'standard',
+    'property': 'padding-top'
+  ),
+  'pad-bottom': (
+    'items': $gorko-size-scale,
+    'output': 'standard',
+    'property': 'padding-bottom'
+  ),
   'leading': (
     'items': (
       'loose': 1.7,
       'tight': 1.3,
-      'flat': '1.1',
+      'flat': 1.1,
     ),
     'output': 'standard',
     'property': 'line-height',

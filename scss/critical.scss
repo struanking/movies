@@ -21,7 +21,7 @@ body {
 
 a:not([class]) {
   color: currentColor;
-  text-decoration-color: get-color('quinary');
+  text-decoration-color: get-color('link');
 }
 
 :focus {
@@ -70,26 +70,12 @@ h4 {
 }
 
 // Import blocks
-@import 'blocks/definition-group';
-@import 'blocks/tags-list';
-@import 'blocks/site-foot';
-@import 'blocks/site-head';
-@import 'blocks/nav';
-@import 'blocks/button';
+@import 'blocks/site-header';
 @import 'blocks/skip-link';
-@import 'blocks/cta';
-@import 'blocks/page-header';
-@import 'blocks/people';
-@import 'blocks/person';
-@import 'blocks/gallery';
 
 // Import utilities
 @import 'utilities/flow';
-@import 'utilities/frame';
-@import 'utilities/panel';
-@import 'utilities/radius';
 @import 'utilities/site-wrap';
 @import 'utilities/visually-hidden';
 @import 'utilities/wrapper';
-@import 'utilities/headline';
 @import 'utilities/auto-grid';

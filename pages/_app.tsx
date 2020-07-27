@@ -13,7 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Header />
       <main tabIndex={-1} id="main-content">
-        <Component {...pageProps} />
+        <div className="wrapper">
+          <Component {...pageProps} />
+        </div>
       </main>
       <Footer />
     </>

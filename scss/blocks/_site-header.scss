@@ -1,0 +1,10 @@
+
+// TODO move to a block?
+.site-header[role="banner"] {
+  border-bottom: solid 1px get-color('light-shade');
+  padding: get-size('400') 0;
+}
+
+.site-header + #main-content {
+  padding-top: get-size('700');
+}

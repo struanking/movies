@@ -1,32 +1,16 @@
 import Head from 'next/head';
-import { useSession } from 'next-auth/client';
 import config from '../config';
 import { Search } from '../components/search';
 
 export default function Home({ latestFilm, nowPlaying }): JSX.Element {
-  const [session, loading] = useSession();
   return (
     <>
       <Head>
         <title>Movie App - Home</title>
       </Head>
 
-      <h1 data-testid="title">Welcome to The Movie App, 1</h1>
-      <button type="button">Test button</button>
-      <p>
-        {!session && (
-          <>
-            Not signed in <br />
-            <a href="/api/auth/signin">Sign in</a>
-          </>
-        )}
-        {session && (
-          <>
-            Signed in as {session.user.email} <br />
-            <a href="/api/auth/signout">Sign out</a>
-          </>
-        )}
-      </p>
+      <h1 data-testid="title">The Movie App</h1>
+
       <Search />
       <p>
         Latest Film
