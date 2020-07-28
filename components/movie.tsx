@@ -10,7 +10,7 @@ export function Movie({ id, poster_path, title }) {
         loading="lazy"
         className="movie__image"
         src={`${config.TMDB_IMAGE_ROOT}/w185${poster_path}`}
-        alt={`Poster image for ${title}`}
+        alt={`Poster for ${title}`}
         draggable="false"
       />
       <figcaption className="movie__details">{title}</figcaption>
