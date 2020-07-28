@@ -1,5 +1,5 @@
 {
-  "extends": "satya164",
+  "extends": ["satya164", "plugin:cypress/recommended"],
   "rules": {
     "react/react-in-jsx-scope": "off"
   }
