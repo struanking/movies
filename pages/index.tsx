@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import config from '../config';
+import { Grid } from '../components/grid';
+import { Movie } from '../components/movie';
 import { Search } from '../components/search';
 
-export default function Home({ latestFilm, nowPlaying }): JSX.Element {
+export default function Home({ latestFilm, nowPlaying, config }): JSX.Element {
   return (
     <>
       <Head>
@@ -18,11 +20,12 @@ export default function Home({ latestFilm, nowPlaying }): JSX.Element {
         <code>{JSON.stringify(latestFilm, null, '\t')}</code>
       </p>
 
-      <ul>
+      <h2>Now playing</h2>
+      <Grid>
         {nowPlaying?.map((film) => (
-          <li key={film.id}>{film.title}</li>
+          <Movie key={film.id} {...film} />
         ))}
-      </ul>
+      </Grid>
     </>
   );
 }
@@ -34,16 +37,22 @@ function apiRequest(path) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
+  // TODO run requests in parallel
   const res = await fetch(apiRequest('/movie/latest'));
   const latestFilm = await res.json();
 
   const res2 = await fetch(apiRequest('/movie/now_playing'));
   const nowPlaying = await res2.json();
 
+  // const conf = await fetch(apiRequest('/configuration'));
+  // const config = await conf.json();
+  // console.log('Config', config);
+
   return {
     props: {
       latestFilm,
       nowPlaying: nowPlaying.results,
+      config,
     },
   };
 }
