@@ -4,7 +4,7 @@ import { Grid } from '../components/grid';
 import { Movie } from '../components/movie';
 import { Search } from '../components/search';
 
-export default function Home({ latestFilm, nowPlaying, config }): JSX.Element {
+export default function Home({ latestFilm, nowPlaying }): JSX.Element {
   return (
     <>
       <Head>
@@ -14,11 +14,11 @@ export default function Home({ latestFilm, nowPlaying, config }): JSX.Element {
       <h1 data-testid="title">The Movie App</h1>
 
       <Search />
+      <h2>Latest Film</h2>
       <p>
-        Latest Film
-        <br />
-        <code>{JSON.stringify(latestFilm, null, '\t')}</code>
+        {latestFilm.title}, {latestFilm.release_date}
       </p>
+      {/* <code>{JSON.stringify(latestFilm, null, '\t')}</code> */}
 
       <h2>Now playing</h2>
       <Grid>

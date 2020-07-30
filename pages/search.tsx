@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useSwr from 'swr';
+import { Grid } from '../components/grid';
+import { Movie } from '../components/movie';
 import { Search } from '../components/search';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function SearchResults() {
   const router = useRouter();
-  const query = router.query.query;
+  const { query } = router.query;
   const { data, error } = useSwr(`/api/search/${query}`, fetcher);
 
   return (
@@ -24,11 +26,12 @@ export default function SearchResults() {
 
       {error && <div>Failed to load search results</div>}
       {!data && <div>Loading...</div>}
-      <ul>
+
+      <Grid>
         {data?.results?.map((film) => (
-          <li key={film.id}>{film.title}</li>
+          <Movie key={film.id} {...film} />
         ))}
-      </ul>
+      </Grid>
     </>
   );
 }
